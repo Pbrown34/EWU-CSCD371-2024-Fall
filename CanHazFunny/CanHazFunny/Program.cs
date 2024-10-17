@@ -9,7 +9,10 @@ public class Program
     private static string currentFormat = "Http";
 
     static public void Main(string[] args)
-    {
+    { 
+        
+        
+        
         Boolean keepTellingJokes = true;
         Boolean wantJson = false;
         Jester jester = new();
@@ -61,5 +64,21 @@ public class Program
         System.Console.WriteLine(System.Environment.NewLine + "Goodbye! Its been fun!");
         //Feel free to use your own setup here - this is just provided as an example
         //new Jester(new SomeReallyCoolOutputClass(), new SomeJokeServiceClass()).TellJoke();
+        
+        /*
+        public IJokerService? GetJoke { get; set;}, GetJokeJson { get; set; }
+        public IJoker? TellJoke() { get;}, TellJokeJson() { get;}
+        public IOutputter? ConsoleOutput() { get;}
+        if(arg[1] = Json)
+        ProgramStarter(JokeService,ConsoleOutputter(Joker.TellJokeJson()));
+        else
+        ProgramStarter(JokeService,ConsoleOutputter(Joker.TellJoke()));
+        public void ProgramStarter(JokeService(), ConsoleOutputter())
+        {
+            
+            
+        }
+        */
+
     }
 }

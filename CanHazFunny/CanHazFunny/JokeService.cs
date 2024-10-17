@@ -11,24 +11,25 @@ public class JokeService : IJokeService
     public string GetJoke()
     {
         string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
-        ArgumentNullException.ThrowIfNull(joke);
+        if (String.IsNullOrEmpty(joke))
+        {
+            return "Git joke returns empty Joke.";
+        }
         return joke;
     }
 
     public string GetJokeJson()
     {
         JokeResponse? jokeResponse = HttpClient.GetFromJsonAsync<JokeResponse>("https://geek-jokes.sameerkumar.website/api?format=json").Result;
-
-        if (jokeResponse is null)
+        if (jokeResponse == null)
         {
-            throw new InvalidOperationException("Joke response is null");
+            return "Git joke returns empty jokejson.";
         }
-
         return jokeResponse.Joke ?? throw new InvalidOperationException("Joke is null");
     }
 }
 
 public sealed class JokeResponse
 {
-    public string? Joke { get; set; } = "Whats a mermaids favorite dessert? SpongeCake!";
+    public string Joke { get; set; } = "My Parents call me a joke";
 }

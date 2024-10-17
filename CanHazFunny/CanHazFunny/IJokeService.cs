@@ -3,6 +3,6 @@ namespace CanHazFunny;
 
 public interface IJokeService
 {
-    string GetJoke();
-    string GetJokeJson();
+    public string GetJoke();
+    public string GetJokeJson();
 }

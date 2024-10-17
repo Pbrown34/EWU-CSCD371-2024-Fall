@@ -3,6 +3,6 @@ namespace CanHazFunny;
 
 public interface IJoker
 {
-    bool TellJoke();
-    bool TellJokeJson();
+    public bool TellJoke();
+    public bool TellJokeJson();
 }

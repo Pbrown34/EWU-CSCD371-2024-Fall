@@ -3,6 +3,7 @@ using System;
 public class Jester : IJoker
 {
     private JokeService jokeService = new();
+    public  IOutputter? ConsoleOutput { get;}
     public bool TellJoke()
     {
         string response = jokeService.GetJoke();
@@ -11,7 +12,7 @@ public class Jester : IJoker
 
         if (!isntChuckNorris)
         {
-            System.Console.WriteLine(response);
+            ConsoleOutput!.ConsoleOutputter(response);
             return true;
         }
         else
@@ -27,7 +28,7 @@ public class Jester : IJoker
         bool isntChuckNorris = jsonResponse.Contains("Norris") || jsonResponse.Contains("Chuck");
         if (!isntChuckNorris)
         {
-            System.Console.WriteLine(jsonResponse);
+            ConsoleOutput!.ConsoleOutputter(jsonResponse);
             return true;
         }
         else
